@@ -1,0 +1,8 @@
+- phi included to talk about how the distruibutin is importntant for bsm
+-dlean up plots
+- fix the cross section numbers for the plots uunits are wrong 
+- table of cross sections 
+- table of helicity fracions
+- helicity fravtions shoudl not change over energies
+- plot helicity fracctions as a function of Tri Boson invariant mass 
+- remove bun lines 
