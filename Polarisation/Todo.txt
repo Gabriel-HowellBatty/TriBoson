@@ -6,3 +6,6 @@
 - helicity fravtions shoudl not change over energies
 - plot helicity fracctions as a function of Tri Boson invariant mass 
 - remove bun lines 
+- 
+
+- NEED TO CHNAMGE UNITS OF CROSS SECTION ON PLOTS 
