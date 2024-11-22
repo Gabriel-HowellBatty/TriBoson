@@ -24,4 +24,3 @@ def combine_csv_files_polarisation():
 # Ensure the function is called only when the script is run directly
 if __name__ == "__main__":
     combine_csv_files_polarisation()
-
