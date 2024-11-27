@@ -1,18 +1,36 @@
 import json
 import glob
+import os
 
-def combine_json_files(output_file, json_files):
-    combined_data = {}
+# Define the path where JSON files are located
+json_folder = os.path.abspath("../DataFiles")  # Path to JSON files
+json_files = os.path.join(json_folder, "*.json")  # Match all JSON files in the folder
 
-    for json_file in json_files:
-        with open(json_file, 'r') as file:
-            data = json.load(file)
-            energy_level = json_file.split("_")[-1].split(".")[0]  # Extract energy level from filename
-            combined_data[energy_level] = data  # Add data under energy level key
+# Initialize a dictionary to store combined data
+combined_data = {}
 
-    # Save the combined data to a new JSON file
-    with open(output_file, 'w') as file:
-        json.dump(combined_data, file, indent=4)
+# Debug: Print the list of JSON files found
+print("Looking for JSON files in:", json_folder)
+print("Files found:", list(glob.glob(json_files)))
 
-    print(f"Combined data saved to {output_file}")
+# Iterate over each JSON file in the directory
+for file_name in glob.glob(json_files):
+    with open(file_name, 'r') as file:
+        data = json.load(file)
+        # Extract energy level from the filename
+        # Assuming the filename is something like "data_14.0.json"
+        base_name = os.path.basename(file_name).replace(".json", "")  # Remove extension
+        energy_level = base_name.split("_")[-1]  # Extract the part after the last underscore
+        combined_data[energy_level] = data
 
+# Define the output file path
+output_directory = os.path.abspath(r"C:\Users\gabri\Documents\University\Year 4\Mphys\DataFiles")  # Adjust directory as needed
+os.makedirs(output_directory, exist_ok=True)  # Create the directory if it doesn't exist
+output_file = os.path.join(output_directory, "combined_data.json")
+
+# Save the combined data into the file
+with open(output_file, 'w') as file:
+    json.dump(combined_data, file, indent=4)
+    print("File written successfully.")
+
+print(f"Combined data saved to {output_file}")
