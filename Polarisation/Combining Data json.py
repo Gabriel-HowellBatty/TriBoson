@@ -3,7 +3,7 @@ import glob
 import os
 
 # Define the path where JSON files are located
-json_folder = os.path.abspath("../DataFiles")  # Path to JSON files
+json_folder = os.path.abspath(r"C:\Users\Arnull\OneDrive - The University of Manchester\Documents\MPHYS Poject\sem 1 code stuff\DataFiles")  # Path to JSON files"../../DataFiles"
 json_files = os.path.join(json_folder, "*.json")  # Match all JSON files in the folder
 
 # Initialize a dictionary to store combined data
@@ -24,7 +24,7 @@ for file_name in glob.glob(json_files):
         combined_data[energy_level] = data
 
 # Define the output file path
-output_directory = os.path.abspath(r"C:\Users\gabri\Documents\University\Year 4\Mphys\DataFiles")  # Adjust directory as needed
+output_directory = os.path.abspath(r"C:\Users\Arnull\OneDrive - The University of Manchester\Documents\MPHYS Poject\sem 1 code stuff\DataFiles")  # Adjust directory as needed
 os.makedirs(output_directory, exist_ok=True)  # Create the directory if it doesn't exist
 output_file = os.path.join(output_directory, "combined_data.json")
 
